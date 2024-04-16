@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Custom CSS for carousel container */
+    .carousel-container {
+      padding: 60px; /* Adjust the padding as needed */
+      margin: 0 auto; /* Center the container horizontally */
+      max-width: 1200px; /* Set maximum width for the container */
+      position: relative; /* Positioning context for absolute positioning of text */
+    }
+
+    /* Custom CSS for carousel sizing */
+    .carousel {
+      width: 100%; /* Set the width of the carousel to 100% */
+      height: 80vh; /* Set the height of the carousel to full viewport height */
+    }
+
+    .carousel-inner {
+      width: 100%; /* Ensure the carousel items fill the carousel container */
+      height: 100%; /* Ensure the carousel items fill the carousel container */
+    }
+
+    .carousel-item {
+      width: 100%; /* Ensure each carousel item fills the carousel container */
+      height: 100%; /* Ensure each carousel item fills the carousel container */
+      position: relative; /* Positioning context for absolute positioning of text */
+      transition: opacity 1s ease, transform 1s ease; /* Smooth transition effect */
+    }
+
+    .carousel-item img {
+      width: 100%; /* Ensure the images fill the carousel items */
+      height: 100%; /* Ensure the images fill the carousel items */
+      object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+      opacity: 1; /* Ensure initial opacity is set to 1 */
+    }
+
+    /* Custom CSS for blog text */
+    .blog-text {
+      position: absolute; /* Position the text absolutely within the carousel item */
+      bottom: 20px; /* Adjust vertical position of the text */
+      left: 20px; /* Adjust horizontal position of the text */
+      color: white; /* Text color */
+      font-size: 24px; /* Font size of the text */
+      font-weight: bold ; /* Font weight of the text */
+      text-align: left;
+    }
+
+    /* Keyframe animation for smooth slide transition */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Apply animation to carousel items */
+    .carousel-item.active {
+      animation: slideIn 1s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel-container">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="img/blog1.jpg" alt="First slide">
+        <div class="blog-text">Blog 1 :As the first light of dawn breaks through the horizon, painting the sky with hues of pink, orange, and gold, there's a magical moment where time seems to stand still. </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="img/blog2.jpg" alt="Second slide">
+        <div class="blog-text">Blog 2: As it sways gently in the breeze, the purple flower exudes a sweet fragrance that lingers in the air, inviting all to pause and admire its timeless beauty.</div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="img/blog3.jpg" alt="Third slide">
+        <div class="blog-text">Blog 3: Here, amidst the rustling leaves and the soft whispers of the wind, one finds solace in the embrace of nature's majesty.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+> Jatin:
+<script>
+  // Initialize carousel and set timer for automatic slide change
+  $(document).ready(function(){
+    $('.carousel').carousel();
+
+    // Function to automatically move to the next slide every 3 seconds
+    function nextSlide() {
+      $('.carousel').carousel('next');
+    }
+
+    // Set interval to call nextSlide function every 3 seconds
+    setInterval(nextSlide, 5000);
+  });
+</script>
+
+</body>
+</html>
